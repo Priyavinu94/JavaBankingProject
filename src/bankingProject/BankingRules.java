@@ -1,12 +1,14 @@
 package bankingProject;
 
-public abstract class BankingRules {
-
+public abstract class BankingRules implements StandardProcess{
+	
 	private double dailyWithdrawalLimit;
 	private int noOfTransactionsPerDay;
 	private double amountWithdrawn; // variable stores total amount withdrawn on current date
 	private int transactionsProcessed; // variable stores the total no of transactions processed on current date
 
+	PersonAccount person = new PersonAccount();	//instantiating PersonAccount class
+	
 	BankingRules() { // initializes the variables
 		this.dailyWithdrawalLimit = 500.0;
 		this.noOfTransactionsPerDay = 12;
@@ -55,7 +57,9 @@ public abstract class BankingRules {
 		}
 		return false;
 	}
-
+	
 	public abstract boolean isUserValid(String userID, String securityCode); // needs to be implemented in subclasses
+
+	public abstract double getBalance();
 
 }

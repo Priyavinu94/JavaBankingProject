@@ -1,31 +1,26 @@
 package bankingProject;
 
 public class OnlineBanking extends BankingRules implements StandardProcess {
-	
-	private String userName;
-	private String password;
+
 	double balance;
-	private String name;
-	
-	PersonAccount person = new PersonAccount(name);
-	
-    public OnlineBanking(String userName, String password) {
-		this.userName = userName;
-		this.password = password;
+//	private String name;
+
+	public OnlineBanking() {
+		super();
+		this.balance =  person.getBalance();
 	}
-    
+	
+	public double getBalance() {
+		return this.balance;
+	}
 	@Override
 	public void deposit(double depAmount) {
-		if (depAmount > 0) {
-			balance += depAmount;
-		}
+		System.out.println("This feature is not available in Online Banking");
 	}
 
 	@Override
 	public void withdraw(double withdrawAmount) {
-		if (withdrawAmount > 0 && withdrawAmount <= balance) {
-			balance -= withdrawAmount;
-		}
+		System.out.println("This feature is not available in Online Banking");
 	}
 
 	@Override
@@ -36,18 +31,15 @@ public class OnlineBanking extends BankingRules implements StandardProcess {
 	}
 
 	@Override
-	public double investmentCalculator(double currValue, double rate, int noOfYears) {
-		if (currValue > 0 && noOfYears > 0) {
-			for (int i = 1; i <= noOfYears; i++) {
-				currValue *= (1 + rate);
-			}
+	public void investment(double investmentAmount) {
+		if (investmentAmount > 0) {
+			balance += investmentAmount;
 		}
-		return currValue;
 	}
-	
+
 	@Override
-	public boolean isUserValid(String userID, String password) {
-		if(userName.equals(this.userName) && password.equals(this.password)) {
+	public boolean isUserValid(String cardNumber, String password) {
+		if (cardNumber.equals(person.getCardNumber()) && password.equals(person.getLoginPassword())) {
 			return true;
 		}
 		return false;

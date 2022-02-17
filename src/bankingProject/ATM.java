@@ -2,20 +2,12 @@ package bankingProject;
 
 public class ATM extends BankingRules implements StandardProcess {
 	
-	private String cardNo;
-	private String pinNo;
 	private double balance;
-	private String name;
-		
-	PersonAccount person = new PersonAccount(name);
-
-//	public ATM() {
-//		super();
-//	}
-
-	public ATM(String cardNo, String pinNo) {
-		this.cardNo = cardNo;
-		this.pinNo = pinNo;
+//	private String name;
+	
+	public ATM() {
+		super();
+		balance = person.getBalance();
 	}
 	
 	public double getBalance() {
@@ -25,14 +17,14 @@ public class ATM extends BankingRules implements StandardProcess {
 	@Override
 	public void deposit(double depAmount) {
 		if (depAmount > 0 && isTransactionAllowed()) {
-			balance += depAmount;
+			this.balance += depAmount;
 		}
 	}
 
 	@Override
 	public void withdraw(double withdrawAmount) {
 		if (withdrawAmount > 0 && withdrawAmount <= balance && isWithdrawalAllowed(withdrawAmount)) {
-			balance -= withdrawAmount;
+			this.balance -= withdrawAmount;
 		}
 	}
 
@@ -42,14 +34,13 @@ public class ATM extends BankingRules implements StandardProcess {
 	}
 
 	@Override
-	public double investmentCalculator(double currValue, double rate, int noOfYears) {
+	public void investment(double investAmount) {
 		System.out.println("This functionality is available only in Online Banking or at any Branch");
-		return 0;
 	}
 
 	@Override
-	public boolean isUserValid(String cardNo, String pinNo) {
-		if (cardNo.equals(this.cardNo) && pinNo.equals(this.pinNo)) {
+	public boolean isUserValid(String cardNumber, String pinNo) {
+		if (cardNumber.equals(person.getCardNumber()) && pinNo.equals(person.getPinNo())) {
 			return true;
 		}
 		return false;

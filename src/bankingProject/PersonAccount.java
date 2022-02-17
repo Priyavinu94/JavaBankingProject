@@ -2,31 +2,47 @@ package bankingProject;
 
 public class PersonAccount {
 	
-	private int bankAccountNo;
 	String accountHolderName;
-	private double totalBalance;
-	String[] accountTypes = {"Chequing", "Saving"};
-	double[] balanceIndividual = {7895.46, 4343.65};
+	private String cardNumber;
+	private String pinNo;
+	private String loginPassword;
+	private double accountBalance;
+	private int bankAccountNo;
 	
-	public PersonAccount(String accountHolderName) {
-		this.accountHolderName = accountHolderName;
-//		this.bankAccountNo = bankAccountNo;
+	public PersonAccount() {
+		this.accountHolderName = "Divya";
+		this.bankAccountNo = 6423878;
+		this.cardNumber = "4506476692349075";
+		this.pinNo = "5432";
+		this.loginPassword = "user1234";
+		this.accountBalance = 15326.75;
 	}
 	
-	public double getTotalBalance() {
-		this.totalBalance = balanceIndividual[0] + balanceIndividual[1];
-		return this.totalBalance;
+	public String getCardNumber() {
+		return this.cardNumber;
 	}
 	
-	public double getChequingBalance() {
-		return balanceIndividual[0];
+	public String getPinNo() {
+		return this.pinNo;
 	}
 	
-	public double getSavingsBalance() {
-		return balanceIndividual[1];
+	public void setPinNo(String pinNo) {
+		this.pinNo = pinNo;
+	}
+	
+	public String getLoginPassword() {
+		return this.loginPassword;
+	}
+	
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
+	}
+	
+	public double getBalance() {
+		return this.accountBalance;
 	}
 	
 	public int getAccountNum() {
-		return bankAccountNo;
+		return this.bankAccountNo;
 	}
 }
