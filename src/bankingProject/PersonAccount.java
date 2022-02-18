@@ -2,7 +2,7 @@ package bankingProject;
 
 public class PersonAccount {
 	
-	String accountHolderName;
+	private String accountHolderName;
 	private String cardNumber;
 	private String pinNo;
 	private String loginPassword;
@@ -16,6 +16,10 @@ public class PersonAccount {
 		this.pinNo = "5432";
 		this.loginPassword = "user1234";
 		this.accountBalance = 15326.75;
+	}
+	
+	public String getName() {
+		return this.accountHolderName;
 	}
 	
 	public String getCardNumber() {
@@ -45,4 +49,5 @@ public class PersonAccount {
 	public int getAccountNum() {
 		return this.bankAccountNo;
 	}
+
 }
