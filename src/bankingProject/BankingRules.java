@@ -16,7 +16,7 @@ public abstract class BankingRules implements StandardProcess {
 	BankingRules() { // initializes the variables
 		this.dailyWithdrawalLimit = 500.0; // daily withdrawal limit allowed
 		this.dailyDepositLimit = 10000.0; // daily deposit limit allowed
-		this.noOfTransactionsPerDay = 2; // maximum no of atm transactions that can be made per day
+		this.noOfTransactionsPerDay = 5; // maximum no of atm transactions that can be made per day
 		this.dailyTransferLimit = 3000.0; // daily Online transfer limit
 		this.totalDepositsMade = 2425.50; // variable stores total deposit made on current date
 		this.totalAmountWithdrawn = 50.0; // variable stores total amount withdrawn on current date
