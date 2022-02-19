@@ -55,6 +55,7 @@ public class BankingAppMain {
 							bank.investment(0.0);
 							break;
 						case "5":
+							System.out.println("Your Account Number : " + bank.person.getAccountNum());
 							System.out.println("Your current balance is : $" + bank.getBalance());
 							break;
 						case "6":
@@ -123,6 +124,7 @@ public class BankingAppMain {
 							System.out.println("Your current balance is : $" + bank.getBalance());
 							break;
 						case "5":
+							System.out.println("Your Account Number : " + bank.person.getAccountNum());
 							System.out.println("Your current balance is : $" + bank.getBalance());
 							break;
 						case "6":
