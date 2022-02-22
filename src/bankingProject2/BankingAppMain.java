@@ -9,7 +9,6 @@ public class BankingAppMain {
 		Scanner sc = new Scanner(System.in);
 
 		BankingRules bank = null; // Declaring abstract class reference variable
-//		StandardProcess process = null; 
 
 		int attemptsLeft = 3;
 
@@ -157,6 +156,8 @@ public class BankingAppMain {
 		default:
 			System.out.println("Please make a valid selection");
 		}
+	
+		sc.close();
 	}
 
 }

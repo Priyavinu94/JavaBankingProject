@@ -59,10 +59,8 @@ public class ATM extends BankingRules implements StandardProcess {
 		return false;
 	}
 
-	/**
-	 * Assuming the criteria for setting pinCode is the No of digits should be
-	 * exactly 4 numbers
-	 */
+	/* Assuming the criteria for setting pinCode is the No of digits should be
+	 * exactly 4 numbers */
 	@Override
 	public boolean changeSecurityCode(String newPin) {
 		if (newPin.length() == 4) {

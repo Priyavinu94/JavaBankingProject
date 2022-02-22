@@ -97,6 +97,5 @@ public abstract class BankingRules extends PersonAccount implements StandardProc
 	public abstract boolean changeSecurityCode(String newCode);
 
 	public abstract double getBalance();
-	
 
 }

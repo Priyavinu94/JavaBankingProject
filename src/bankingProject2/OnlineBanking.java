@@ -12,7 +12,7 @@ public class OnlineBanking extends BankingRules implements StandardProcess {
 	public double getBalance() {
 		return balance;
 	}
-	
+
 	// deposit() and withdraw() are not possible through Online Banking
 	@Override
 	public void deposit(double depAmount) {
@@ -51,16 +51,17 @@ public class OnlineBanking extends BankingRules implements StandardProcess {
 		return false;
 	}
 
-	/**
-	 * Assuming the criteria for setting password is the password length should be
-	 * in b/w 8 and 16 (including) characters
+	/*
+	 * Assuming the criteria for setting password is it should have at least 8
+	 * characters and should not have the special characters &, $, @
 	 */
 	@Override
 	public boolean changeSecurityCode(String newPasword) {
-		if (newPasword.length() >= 8 && newPasword.length() <= 16) {
-			return true;
+		if (newPasword.length() < 8 && newPasword.contains("&") && newPasword.contains("$")
+				&& newPasword.contains("@")) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 }
