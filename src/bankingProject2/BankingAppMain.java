@@ -75,10 +75,11 @@ public class BankingAppMain {
 					} while (sc.next().equals("1")); // User gets the ability to continue or exit
 
 				} else {
-					System.out.println("Invalid Card or PIN. Please try again.");
 					if (attemptsLeft == 0) {
 						System.out.println("You already had 3 failed login attempts. Account is locked");
+						break;
 					}
+					System.out.println("Invalid Card or PIN. Please try again.");
 					continue;
 				}
 
@@ -143,12 +144,14 @@ public class BankingAppMain {
 					} while (sc.next().equals("1")); // User gets the ability to continue or exit
 
 				} else {
-					System.out.println("Invalid Card or Password. Please try again.");
 					if (attemptsLeft == 0) {
 						System.out.println("You already had 3 failed login attempts. Account is locked");
+						break;
 					}
+					System.out.println("Invalid Card or PIN. Please try again.");
 					continue;
 				}
+				System.out.println("Thank You! Have a great day!!");
 				break;
 			}
 			break;
@@ -156,7 +159,7 @@ public class BankingAppMain {
 		default:
 			System.out.println("Please make a valid selection");
 		}
-	
+
 		sc.close();
 	}
 
