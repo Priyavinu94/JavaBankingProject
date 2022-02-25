@@ -57,11 +57,11 @@ public class OnlineBanking extends BankingRules implements StandardProcess {
 	 */
 	@Override
 	public boolean changeSecurityCode(String newPasword) {
-		if (newPasword.length() < 8 && newPasword.contains("&") && newPasword.contains("$")
-				&& newPasword.contains("@")) {
-			return false;
+		if (newPasword.length() >= 8 && !newPasword.contains("&") && !newPasword.contains("$")
+				&& !newPasword.contains("@")) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 }
