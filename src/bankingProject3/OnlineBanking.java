@@ -1,0 +1,69 @@
+package bankingProject3;
+
+public class OnlineBanking extends BankingRules implements StandardProcess {
+
+	double balance;
+	PersonAccount account;
+
+	public OnlineBanking(PersonAccount account) {
+		super(account);
+		this.account = account;
+		this.balance = account.getAccountBalance(); // setting the value of balance variable
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	// deposit() and withdraw() are not possible through Online Banking
+	@Override
+	public void deposit(double depAmount) {
+		System.out.println("This feature is not available in Online Banking");
+	}
+
+	@Override
+	public void withdraw(double withdrawAmount) {
+		System.out.println("This feature is not available in Online Banking");
+	}
+
+	// Online transfer from person's account
+	@Override
+	public void fundTransfer(double transferAmount) {
+		if (transferAmount > 0 && transferAmount <= balance) {
+			balance -= transferAmount;
+			System.out.println("Transferred $" + transferAmount + " from your account");
+		}
+	}
+
+	// Assuming investment() does Online transfer into person's account
+	@Override
+	public void investment(double investmentAmount) {
+		if (investmentAmount > 0) {
+			balance += investmentAmount;
+			System.out.println("Transferred $" + investmentAmount + " into your account");
+		}
+	}
+
+	// method to validate the user
+	@Override
+	public boolean isUserValid(String cardNumber, String password) {
+		if (cardNumber.equals(account.getCardNumber()) && password.equals(account.getLoginPassword())) {
+			return true;
+		}
+		return false;
+	}
+
+	/*
+	 * Assuming the criteria for setting password is it should have at least 8
+	 * characters and should not have the special characters &, $, @
+	 */
+	@Override
+	public boolean changeSecurityCode(String newPasword) {
+		if (newPasword.length() >= 8 && !newPasword.contains("&") && !newPasword.contains("$")
+				&& !newPasword.contains("@")) {
+			return true;
+		}
+		return false;
+	}
+
+}
